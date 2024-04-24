@@ -20,17 +20,18 @@
                     <div class="p-6">
                         <h5
                             class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                            {{$store->name}}
+                            {{ $store->name }}
                         </h5>
-                        <p class="block font-sans text-black text-base antialiased font-light leading-relaxed text-inherit">
-                            {{$store->address}}
+                        <p
+                            class="block font-sans text-black text-base antialiased font-light leading-relaxed text-inherit">
+                            {{ $store->address }}
                         </p>
                     </div>
                     <div class="p-6 pt-0">
                         <button
                             class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                             type="button">
-                            {{$store->phoneno}}
+                            {{ $store->phoneno }}
                         </button>
                     </div>
                 </div>
@@ -77,8 +78,8 @@
                                 </svg>
                             </button>
                         </div>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('store.modification', ['store' => $store->id]) }}"
-                            class="mt-5">
+                        <form method="POST" enctype="multipart/form-data"
+                            action="{{ route('store.modification', ['store' => $store->id]) }}" class="mt-5">
                             @csrf
                             <div>
                                 <label for="name" class="block text-sm text-gray-700 capitalize">Name</label>
@@ -143,29 +144,32 @@
                     </thead>
                     <tbody>
                         @foreach ($store->modifications as $modification)
-                        <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                <img class="w-20 rounded-lg shadow-md h-fit" src="{{ Storage::url($modification->image) }}" alt="">
-                            </th>
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{$modification->name}}
-                            </th>
-                            <td class="px-6 py-4 text-gray-900">
-                                White
-                            </td>
-                            <td class="px-6 py-4 text-gray-900">
-                                Interior
-                            </td>
-                            <td class="pr-6 py-4">
-                                <div class="flex">
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <img class="w-20 rounded-lg shadow-md h-fit"
+                                        src="{{ Storage::url($modification->image) }}" alt="">
+                                </th>
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    {{ $modification->name }}
+                                </th>
+                                <td class="px-6 py-4 text-gray-900">
+                                    White
+                                </td>
+                                <td class="px-6 py-4 text-gray-900">
+                                    Interior
+                                </td>
+                                <td class="pr-6 py-4">
                                     <div>
-                                        <button class="p-2 text-white rounded bg-red-600">
-                                            Delete
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                        <form action="{{ route('modifications.delete', ['id' => $modification->id]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="p-2 text-white rounded bg-red-600">
+                                                Delete
+                                            </button>
+                                        </form>                                        
+                                    </div>                                    
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

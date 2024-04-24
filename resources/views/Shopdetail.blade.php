@@ -19,15 +19,7 @@
                                     {{ $shop->description }}
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-x-2">
-                                <div class="font-bold">
-                                    Number:
-                                </div>
-                                <div class="">
-                                    {{ $shop->number }}
 
-                                </div>
-                            </div>
                         </div>
                         <div class="flex gap-x-32 w-ful">
                             <div class="flex flex-col gap-x-2">
@@ -38,9 +30,18 @@
                                     {{ $shop->location }}
                                 </div>
                             </div>
+                            <div class="flex flex-col gap-x-2">
+                                <div class="font-bold">
+                                    Number:
+                                </div>
+                                <div class="">
+                                    {{ $shop->number }}
+
+                                </div>
+                            </div>
                         </div>
                         <div class="flex justify-start gap-x-32 w-ful">
-                            <div class="flex gap-x-2">
+                            <div class="flex gap-x-2 items-center">
                                 <div class="font-bold text-lg">
                                     Time Availability:
                                 </div>
@@ -83,18 +84,12 @@
         </div>
     </div>
     @foreach ($reviews as $review)
-        <div class="flex bg-white rounded-xl p-4 w-fit mb-4">
+        <div class="flex bg-white rounded-xl p-4 w-fit mb-4 mt-10">
             <div class="flex flex-col gap-y-3">
-                <div>
-                    Stars: {{ $review->stars }} 
-                </div>
                 <div class="text-xl font-bold">
                     {{ $review->title }}
                 </div>
-                <div class="text-gray-500 text-sm">
-                    {{ $review->name }}
-                </div>
-                <div class="p-2 bg-white shadow-lg text-sm rounded-lg">
+                <div class="p-2 bg-white border border-gray-300 shadow-sm text-sm rounded-lg">
                     {{ $review->description }}
                 </div>
                 <div class="h-[0.05rem] w-full bg-black"></div>

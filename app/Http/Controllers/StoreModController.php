@@ -44,10 +44,4 @@ class StoreModController extends Controller
         $url = Storage::url($store->image);
         return view('Store.show',["store"=>$store,"image"=>$url]);
     }
-
-    // public function show()
-    // {
-    //     $storeMod = StoreMod::all();
-    //     return view('Store.show', compact('storeMod'));
-    // }
 }

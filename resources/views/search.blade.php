@@ -26,13 +26,6 @@
         <div class="w-full h-[22rem] shadow-2xl rounded-lg px-8 border border-gray-200 mb-8">
             <div class="flex justify-start gap-x-10">
                 <div class="flex pt-9">
-                    {{-- @if ($item->image)
-                        <img class="h-[18rem] w-fit" src="{{ Storage::url($item->image) }}"
-                            alt="Image description">
-                    @else
-                        <img class="h-[18rem] w-fit" src="{{ Vite::asset('/resources/images/workshop.png') }}"
-                            alt="Placeholder image">
-                    @endif --}}
                     <img class="h-[18rem] w-fit" src="{{ Vite::asset('/resources/images/workshop.png') }}"
                             alt="Placeholder image">
                 </div>

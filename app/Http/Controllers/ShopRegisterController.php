@@ -26,10 +26,8 @@ class ShopRegisterController extends Controller
             'instagram' => 'required',
             'facebook' => 'required',
             'availability' => 'required',
-            'image' => 'required}',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        dd($request->image);
 
         $path = $request->image->store('public');
 
@@ -76,7 +74,7 @@ class ShopRegisterController extends Controller
         $shop = ShopRegister::findOrFail($id);
         $shop->delete();
 
-        return redirect()->route('Workshoplist')->with('success', 'Shop deleted successfully!');
+        return redirect()->route('workshops')->with('success', 'Shop deleted successfully!');
     }
 
     public function search(Request $request)

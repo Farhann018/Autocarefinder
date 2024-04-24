@@ -22,6 +22,6 @@ class Modification extends Model
     }
 
     public function store() {
-        $this->belongsTo(StoreMod::class, 'store_mod_id');
+        return $this->belongsTo(StoreMod::class, 'store_mod_id');
     }
 }

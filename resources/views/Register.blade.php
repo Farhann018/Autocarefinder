@@ -70,7 +70,7 @@
                                         car with us for a seamless and convenient experience.
                                     </p>
 
-                                    <form action="{{ route('register') }}" method="post" class="mt-5">
+                                    <form action="{{ route('register') }}" enctype="multipart/form-data" method="post" class="mt-5">
                                         @csrf
                                         <div>
                                             <label for="name"
@@ -217,7 +217,6 @@
                 Effortlessly pinpoint the ideal car for you with our streamlined search approach. Find your perfect
                 match.
             </div>
-
             <div x-data="{ modelOpen: false }">
                 @if (auth()->check() && !$user->workshop()->exists())
                     <button @click="modelOpen = !modelOpen"
@@ -251,7 +250,7 @@
                             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
                             <div class="flex items-center justify-between space-x-4">
-                                <h1 class="text-xl font-bold text-gray-800 ">Register Your Car</h1>
+                                <h1 class="text-xl font-bold text-gray-800 ">Register Your WorkShop</h1>
 
                                 <button @click="modelOpen = false"
                                     class="text-gray-600 focus:outline-none hover:text-gray-700">

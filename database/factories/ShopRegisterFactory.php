@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ShopRegisterFactory extends Factory
 {
-    /**
+    /**sh
      * Define the model's default state.
      *
      * @return array<string, mixed>

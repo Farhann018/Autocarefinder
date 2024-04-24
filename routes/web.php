@@ -60,8 +60,6 @@ Route::get('/search', [ShopRegisterController::class, 'search'])->name('search')
 
 Route::post('/shop/{shop}/submit-review', [ReviewController::class, 'store'])->name('submit.review');
 
-// Route::post('/Store/show', [ModificationController::class, 'store'])->name('modification.store');
-
 Route::controller(StoreModController::class)->group(function () {
     Route::post('/stores', 'store')->name('stores.create');
     Route::get('/stores/{store}', 'show')->name('stores.show');
@@ -72,4 +70,10 @@ Route::controller(ModificationController::class)->group(function () {
     Route::post('/stores/{store}/modification', "store")->name("store.modification");
     Route::get('/modifications', 'index')->name('modifications');
     Route::get('/modifications/{type}', 'filter')->name('modifications.filter');
+    Route::delete('/modifications/delete/{id}', 'delete')->name('modifications.delete');
+    Route::get('/modifications/{type}/search', 'search')->name('modifications.filter');
 });
+
+
+
+

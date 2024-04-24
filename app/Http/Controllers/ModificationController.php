@@ -16,7 +16,8 @@ class ModificationController extends Controller
         ]);
     }
 
-    public function filter(string $type) {
+    public function filter(string $type)
+    {
         $modifications = Modification::where("type", $type)->get();
         $type = ucfirst($type);
         return view('modifications.filtered', compact('modifications', 'type'));
@@ -42,5 +43,23 @@ class ModificationController extends Controller
             'store_mod_id' => $store->id
         ]);
         return redirect()->route('stores.show', ['store' => $store->id]);
+    }
+
+    public function delete($id)
+    {
+        $modification = Modification::findOrFail($id);
+        $storeId = $modification->store_mod_id;
+        $modification->delete();
+        return redirect()->route('stores.show', ['store' => $storeId]);
+    }
+
+    public function search(Request $request, $type)
+    {
+        $keyword = $request->input('keyword');
+        $modifications = Modification::where('type', $type)
+            ->where('name', 'LIKE', "%$keyword%")
+            ->get();
+        $type = ucfirst($type);
+        return view('modifications.filtered', compact('modifications', 'type'));
     }
 }

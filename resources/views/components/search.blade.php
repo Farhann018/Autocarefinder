@@ -28,7 +28,7 @@
         </div>
         <div class="hidden md:flex flex-col gap-y-2 w-full">
             <div class="text-start text-lg font-bold">
-                Car Type
+                Workshop 
             </div>
             <div>
                 <div class=" relative inline-block text-left dropdown w-full">
